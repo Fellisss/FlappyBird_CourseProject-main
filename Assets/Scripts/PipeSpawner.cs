@@ -1,13 +1,12 @@
 using UnityEngine;
 
-public class PipeSpawner : MonoBehaviour
+public class MeteorSpawner : MonoBehaviour
 {
-    public GameObject pipePrefab;
+    public GameObject meteorColumnPrefab;
     public float spawnX = 10f;
-    public float gap = 5f;
     public float spawnRate = 2f;
 
-    private float timer = 0f;
+    private float timer;
     private Camera cam;
 
     void Start()
@@ -21,27 +20,28 @@ public class PipeSpawner : MonoBehaviour
 
         if (timer >= spawnRate)
         {
-            SpawnPipePair();
+            SpawnColumn();
             timer = 0f;
         }
     }
 
-    void SpawnPipePair()
+    void SpawnColumn()
     {
-        // ѕолучаем границы экрана в мировых координатах
         float topY = cam.ViewportToWorldPoint(new Vector3(0, 1, 0)).y;
         float bottomY = cam.ViewportToWorldPoint(new Vector3(0, 0, 0)).y;
 
-        // ¬ыбираем случайное смещение центра отверсти€ (не выход€ за кра€)
-        float centerY = Random.Range(bottomY + gap / 2f, topY - gap / 2f);
+        // высота всей колонны (3 метеорита)
+        float columnHeight = 6f;
 
-        // Ќижн€€ труба (опираетс€ на низ)
-        GameObject bottomPipe = Instantiate(pipePrefab);
-        bottomPipe.transform.position = new Vector3(spawnX, centerY - gap / 2f, 0);
+        float safeMinY = bottomY + columnHeight / 2f;
+        float safeMaxY = topY - columnHeight / 2f;
 
-        // ¬ерхн€€ труба (опираетс€ на верх)
-        GameObject topPipe = Instantiate(pipePrefab);
-        topPipe.transform.position = new Vector3(spawnX, centerY + gap / 2f, 0);
-        topPipe.transform.rotation = Quaternion.Euler(0, 0, 180);
+        float spawnY = Random.Range(safeMinY, safeMaxY);
+
+        Instantiate(
+            meteorColumnPrefab,
+            new Vector3(spawnX, spawnY, 0),
+            Quaternion.identity
+        );
     }
 }

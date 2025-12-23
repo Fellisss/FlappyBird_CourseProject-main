@@ -222,7 +222,7 @@ GameObject:
   - component: {fileID: 206283329}
   m_Layer: 0
   m_Name: Bird
-  m_TagString: Bird
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -806,9 +806,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68f0e6c16ae4a10469b4683fa214ea58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pipePrefab: {fileID: 1493625269322593557, guid: 29cf8375b8c55a64ca7fc3a06a58b94b, type: 3}
+  meteorColumnPrefab: {fileID: 254164266235093905, guid: 51fb3ea011073dc4db9bf2b9831fb912, type: 3}
   spawnX: 10
-  gap: 6
   spawnRate: 2
 --- !u!4 &346849353
 Transform:
