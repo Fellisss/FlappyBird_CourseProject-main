@@ -32,6 +32,8 @@ public class GameManager : MonoBehaviour
         bestScore = PlayerPrefs.GetInt("BestScore", 0);
         UpdateBestScoreText();
 
+      
+
         audioSource = GetComponent<AudioSource>();
 
         // Скрываем все UI сердца на старте
