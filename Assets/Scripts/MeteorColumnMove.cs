@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class MeteorColumnMove : MonoBehaviour
 {
-    public float speed = 2f;
+    public float speed = 4f;
 
     void Update()
     {

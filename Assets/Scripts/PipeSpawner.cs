@@ -6,6 +6,10 @@ public class MeteorSpawner : MonoBehaviour
     public float spawnX = 10f;
     public float spawnRate = 2f;
 
+    public GameObject crystalPrefab;
+    [Range(0f, 1f)]
+    public float crystalChance = 0.4f; //40% шанс появления
+
     private float timer;
     private Camera cam;
 
@@ -43,5 +47,6 @@ public class MeteorSpawner : MonoBehaviour
             new Vector3(spawnX, spawnY, 0),
             Quaternion.identity
         );
+
     }
 }

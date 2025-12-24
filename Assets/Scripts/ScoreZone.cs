@@ -1,19 +1,20 @@
-using System;
 using UnityEngine;
 
 public class ScoreZone : MonoBehaviour
 {
-    private bool passed = false; // очки прибавл€ютс€ один раз
+    private bool scored = false;
 
-    void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (passed) return; // если уже срабатывал - выходим
+        if (scored) return;
 
         if (other.CompareTag("Player"))
         {
+            scored = true;
             FindObjectOfType<GameManager>().AddScore();
-            Console.WriteLine("ќчки"); // +1
-            passed = true; // блокируем повторное срабатывание
+
+            // уничтожаем зону, чтобы больше Ќ» ќ√ƒј не срабатывала
+            Destroy(gameObject);
         }
     }
 }

@@ -74,11 +74,11 @@ public class Bird : MonoBehaviour
             gameManager.GameOver();
         }
 
-        if (collision.CompareTag("ScoreZone"))
-        {
-            gameManager.AddScore();
-            Destroy(collision.gameObject);
-        }
+        //if (collision.CompareTag("ScoreZone"))
+        //{
+        //    gameManager.AddScore();
+        //    Destroy(collision.gameObject);
+        //}
     }
 
     void TakeDamage()

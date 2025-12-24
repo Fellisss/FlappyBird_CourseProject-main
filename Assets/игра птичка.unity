@@ -241,6 +241,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpForce: 5
   hitSound: {fileID: 8300000, guid: 5390b8577fe90c94a86523309fd2207a, type: 3}
+  damageCooldown: 0.5
 --- !u!61 &206283325
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -809,6 +810,8 @@ MonoBehaviour:
   meteorColumnPrefab: {fileID: 254164266235093905, guid: 51fb3ea011073dc4db9bf2b9831fb912, type: 3}
   spawnX: 10
   spawnRate: 2
+  crystalPrefab: {fileID: 0}
+  crystalChance: 0.4
 --- !u!4 &346849353
 Transform:
   m_ObjectHideFlags: 0
@@ -4783,6 +4786,63 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 9.2, y: 0.5}
   m_EdgeRadius: 1
+--- !u!1001 &8877254950424433230
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1893641481093874624, guid: 5a4371f9e58740247a29201a3c4845e7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 804.28796
+      objectReference: {fileID: 0}
+    - target: {fileID: 1893641481093874624, guid: 5a4371f9e58740247a29201a3c4845e7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1360
+      objectReference: {fileID: 0}
+    - target: {fileID: 1893641481093874624, guid: 5a4371f9e58740247a29201a3c4845e7, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1893641481093874624, guid: 5a4371f9e58740247a29201a3c4845e7, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1893641481093874624, guid: 5a4371f9e58740247a29201a3c4845e7, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1893641481093874624, guid: 5a4371f9e58740247a29201a3c4845e7, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1893641481093874624, guid: 5a4371f9e58740247a29201a3c4845e7, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1893641481093874624, guid: 5a4371f9e58740247a29201a3c4845e7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1893641481093874624, guid: 5a4371f9e58740247a29201a3c4845e7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1893641481093874624, guid: 5a4371f9e58740247a29201a3c4845e7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8357100828374244920, guid: 5a4371f9e58740247a29201a3c4845e7, type: 3}
+      propertyPath: m_Name
+      value: Crystal
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5a4371f9e58740247a29201a3c4845e7, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -4802,3 +4862,4 @@ SceneRoots:
   - {fileID: 406353877}
   - {fileID: 961288842}
   - {fileID: 260327285}
+  - {fileID: 8877254950424433230}
