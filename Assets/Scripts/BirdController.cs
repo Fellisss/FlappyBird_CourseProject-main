@@ -15,7 +15,9 @@ public class Bird : MonoBehaviour
     private float targetRotation = 0f;
 
     private GameManager gameManager;
-    private bool isDead = false; // защита от повторных столкновений
+
+    private bool canTakeDamage = true; // защита от спама столкновений
+    public float damageCooldown = 0.5f; // задержка между ударами
 
     void Start()
     {
@@ -26,8 +28,6 @@ public class Bird : MonoBehaviour
 
     void Update()
     {
-        if (isDead) return; // если игра окончена — ничего не делаем
-
         // прыжок
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
         {
@@ -55,32 +55,47 @@ public class Bird : MonoBehaviour
         transform.rotation = Quaternion.Euler(0, 0, newZ);
     }
 
-    // 💥 столкновение с метеоритами / колоннами
+    // 💥 столкновение с метеоритами
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (isDead) return;
+        if (!canTakeDamage) return;
 
-        if (collision.gameObject.CompareTag("Pipe"))
+        if (collision.gameObject.CompareTag("Meteor"))
         {
-            isDead = true;
-
-            if (hitSound != null)
-                audioSource.PlayOneShot(hitSound);
-
-            gameManager.LoseLife();
+            TakeDamage();
         }
     }
 
-    // ☠️ зона смерти (выход за экран, нижняя/верхняя граница)
+    // ☠️ выход за экран / зона смерти
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (isDead) return;
-
         if (collision.CompareTag("Death"))
         {
-            isDead = true;
             gameManager.GameOver();
         }
+
+        if (collision.CompareTag("ScoreZone"))
+        {
+            gameManager.AddScore();
+            Destroy(collision.gameObject);
+        }
+    }
+
+    void TakeDamage()
+    {
+        canTakeDamage = false;
+
+        if (hitSound != null)
+            audioSource.PlayOneShot(hitSound);
+
+        gameManager.LoseLife();
+
+        Invoke(nameof(ResetDamage), damageCooldown);
+    }
+
+    void ResetDamage()
+    {
+        canTakeDamage = true;
     }
 }
 
