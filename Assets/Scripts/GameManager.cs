@@ -26,13 +26,17 @@ public class GameManager : MonoBehaviour
 
     private bool gameStarted = false; // Проверка, началась ли игра
 
+    [Header("?? Кристаллы")]
+    public TextMeshProUGUI crystalText;
+    public int crystals = 0;
+
     void Start()
     {
         Time.timeScale = 0; // ?? Игра заморожена на старте
         bestScore = PlayerPrefs.GetInt("BestScore", 0);
         UpdateBestScoreText();
+        UpdateCrystalUI();
 
-      
 
         audioSource = GetComponent<AudioSource>();
 
@@ -47,6 +51,9 @@ public class GameManager : MonoBehaviour
         if (winPanel != null) winPanel.SetActive(false);
         if (pipeSpawner != null) pipeSpawner.SetActive(false);
         if (pauseButton != null) pauseButton.SetActive(false);
+
+        if (crystalText != null)
+            crystalText.gameObject.SetActive(false);
     }
 
     public void StartGame()
@@ -54,9 +61,13 @@ public class GameManager : MonoBehaviour
         gameStarted = true;
         Time.timeScale = 1;
 
+
         if (startPanel != null) startPanel.SetActive(false);
         if (pipeSpawner != null) pipeSpawner.SetActive(true);
         if (pauseButton != null) pauseButton.SetActive(true);
+
+        if (crystalText != null)
+            crystalText.gameObject.SetActive(true);
 
         // Показываем сердца на старте игры
         foreach (GameObject heart in hearts)
@@ -105,6 +116,20 @@ public class GameManager : MonoBehaviour
         }
     }
 
+
+    public void AddCrystal()
+    {
+        crystals++;
+        UpdateCrystalUI();
+    }
+
+    void UpdateCrystalUI()
+    {
+        if (crystalText != null)
+            crystalText.text = "?? " + crystals;
+    }
+
+
     IEnumerator HideHeart(GameObject heart)
     {
         Vector3 startScale = heart.transform.localScale;
@@ -131,6 +156,8 @@ public class GameManager : MonoBehaviour
 
         if (pauseButton != null)
             pauseButton.SetActive(false);
+        if (crystalText != null)
+            crystalText.gameObject.SetActive(false);
 
         SFXManager.instance.PlayButtonClick();
         Time.timeScale = 0;
@@ -163,6 +190,8 @@ public class GameManager : MonoBehaviour
 
         if (winSound != null)
             audioSource.PlayOneShot(winSound);
+        if (crystalText != null)
+            crystalText.gameObject.SetActive(false);
 
         // Скрываем все сердца
         foreach (GameObject heart in hearts)

@@ -62,8 +62,9 @@ GameObject:
   m_Component:
   - component: {fileID: 5940704724756842846}
   - component: {fileID: 2622730595174271353}
-  - component: {fileID: 4917243615380928995}
   - component: {fileID: 8270033892094193058}
+  - component: {fileID: 873803178348757436}
+  - component: {fileID: 1801827247945201265}
   m_Layer: 0
   m_Name: ScoreZone
   m_TagString: ScoreZone
@@ -131,18 +132,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &4917243615380928995
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2619488094666373329}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad522963a0b7a4d4ea7c2901a7c5ef95, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!61 &8270033892094193058
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -150,7 +139,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2619488094666373329}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -188,6 +177,30 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &873803178348757436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2619488094666373329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad522963a0b7a4d4ea7c2901a7c5ef95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1801827247945201265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2619488094666373329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77305748d70683a4d98f56bb5db98141, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &321748112773544688
 PrefabInstance:
   m_ObjectHideFlags: 0
