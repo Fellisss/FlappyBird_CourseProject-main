@@ -30,6 +30,12 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI crystalText;
     public int crystals = 0;
 
+
+    public GameObject gun;
+    public int crystalCount = 0;
+
+
+
     void Start()
     {
         Time.timeScale = 0; // ?? Игра заморожена на старте
@@ -94,7 +100,7 @@ public class GameManager : MonoBehaviour
         score++;
         scoreText.text = score.ToString();
 
-        if (score >= 40) // Победа
+        if (score >= 1000) // Победа
         {
             WinGame();
         }
@@ -121,12 +127,18 @@ public class GameManager : MonoBehaviour
     {
         crystals++;
         UpdateCrystalUI();
+
+        // ?? если собрали 5 кристаллов — включаем пушку
+        if (crystals >= 5 && gun != null)
+        {
+            gun.SetActive(true);
+        }
     }
 
     void UpdateCrystalUI()
     {
         if (crystalText != null)
-            crystalText.text = "?? " + crystals;
+            crystalText.text = crystals.ToString(); // убрали ??, показываем только число
     }
 
 

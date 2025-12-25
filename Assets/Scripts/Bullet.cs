@@ -2,18 +2,25 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public float speed = 10f;
-
-    void Update()
-    {
-        transform.Translate(Vector2.right * speed * Time.deltaTime);
-    }
-
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Meteor"))
         {
-            Destroy(collision.gameObject);
+            // Получаем компонент здоровья метеорита
+            MeteorHealth meteorHealth = collision.GetComponent<MeteorHealth>();
+
+            if (meteorHealth != null)
+            {
+                // Вызываем эффект разрушения
+                meteorHealth.TakeDamage();
+            }
+            else
+            {
+                // На всякий случай старый способ
+                Destroy(collision.gameObject);
+            }
+
+            // Уничтожаем пулю
             Destroy(gameObject);
         }
     }

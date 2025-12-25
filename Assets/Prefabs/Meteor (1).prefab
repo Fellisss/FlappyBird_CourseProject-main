@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 4143551372758073933}
   - component: {fileID: 1096632655705300280}
   - component: {fileID: 548111060062318616}
+  - component: {fileID: 4778572729876644362}
+  - component: {fileID: 2843873557971648434}
   m_Layer: 0
   m_Name: Meteor (1)
   m_TagString: Meteor
@@ -162,3 +164,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: 100
+--- !u!114 &4778572729876644362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7150395332449231916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe50c3aba7f1f4c4bbdb32f13e40d683, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destroyEffect: {fileID: 0}
+--- !u!114 &2843873557971648434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7150395332449231916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4241fc32ea5192c42942024ab4a20bca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destroyEffect: {fileID: 2443526633309339018, guid: ccb73f80760525c4e859710707540432, type: 3}
