@@ -55,34 +55,30 @@ public class Bird : MonoBehaviour
         transform.rotation = Quaternion.Euler(0, 0, newZ);
     }
 
-    // ❌ Collision больше не используем для метеоритов
+    // 💥 столкновение с метеоритами
     void OnCollisionEnter2D(Collision2D collision)
     {
-        // оставлено пустым специально
-    }
+        if (!canTakeDamage) return;
 
-    // ✅ ВСЕ столкновения теперь здесь
-    void OnTriggerEnter2D(Collider2D collision)
-    {
-        // 💥 метеорит
-        if (collision.CompareTag("Meteor"))
+        if (collision.gameObject.CompareTag("Meteor"))
         {
-            if (!canTakeDamage) return;
             TakeDamage();
         }
+    }
 
-        // ☠️ зона смерти
+    // ☠️ выход за экран / зона смерти
+    void OnTriggerEnter2D(Collider2D collision)
+    {
         if (collision.CompareTag("Death"))
         {
             gameManager.GameOver();
         }
 
-        // 🎯 зона очков (если снова понадобится)
-        // if (collision.CompareTag("ScoreZone"))
-        // {
-        //     gameManager.AddScore();
-        //     Destroy(collision.gameObject);
-        // }
+        //if (collision.CompareTag("ScoreZone"))
+        //{
+        //    gameManager.AddScore();
+        //    Destroy(collision.gameObject);
+        //}
     }
 
     void TakeDamage()
